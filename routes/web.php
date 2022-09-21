@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\BlogController;
+use App\Http\Controllers\CategoryController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,5 +22,11 @@ Route::get('/blog-detail', [HomeController::class, 'detail'])->name('blog-detail
 
 
 
+
 Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified'])->group(function () {
-    Route::get('/dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');});
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');
+
+    Route::get('/add/blog-category', [CategoryController::class, 'addCategory'])->name('add.blog-category');
+    Route::post('/create/blog-category', [CategoryController::class, 'createCategory'])->name('create.blog-category');
+    Route::get('/manage/blog-category', [CategoryController::class, 'manageCategory'])->name('manage.blog-category');
+});
