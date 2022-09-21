@@ -29,4 +29,8 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified']
     Route::get('/add/blog-category', [CategoryController::class, 'addCategory'])->name('add.blog-category');
     Route::post('/create/blog-category', [CategoryController::class, 'createCategory'])->name('create.blog-category');
     Route::get('/manage/blog-category', [CategoryController::class, 'manageCategory'])->name('manage.blog-category');
+
+    Route::get('/add/blog', [BlogController::class, 'addBlog'])->name('add.blog');
+    Route::post('/create/blog', [BlogController::class, 'createBlog'])->name('create.blog');
+    Route::get('/manage/blog', [BlogController::class, 'manageBlog'])->name('manage.blog');
 });
